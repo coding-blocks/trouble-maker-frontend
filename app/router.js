@@ -7,7 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('questions');
+  this.route('questions', function() {
+    this.route('id', {path: '/:id'});
+  });
   this.route('callback');
 });
 
