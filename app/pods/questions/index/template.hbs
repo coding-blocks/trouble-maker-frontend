@@ -1,4 +1,11 @@
 <div class="container">
+  <div class="row">
+    <div class="button-solid">
+      {{#link-to 'questions.new' class="white"}}
+        <button>+ Add Question</button>
+      {{/link-to}}
+    </div>
+  </div>
   {{#each questions as |question|}}
   <div class="row">
     <div class="card">

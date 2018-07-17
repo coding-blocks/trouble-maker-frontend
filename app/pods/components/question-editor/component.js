@@ -18,7 +18,11 @@ export default Component.extend({
       this.get('question.choices').addObject(newChoice)
     },
     saveQuestion () {
-      this.get('question').save()
+      if (typeof this.get('onSave') === 'function') {
+        this.get('onSave')()
+      } else {
+        this.get('question').save()
+      }
     }
   }
 });

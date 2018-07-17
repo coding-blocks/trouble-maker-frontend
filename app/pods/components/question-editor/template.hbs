@@ -16,20 +16,26 @@
     {{/if}}
   </p>
 
-  <div class="button-dashed add-choice">
-    <a>
-      <button {{action 'addChoice'}}>Add Choice</button>
-    </a>
-  </div>
-  <ul>
-    {{#each question.choices as |choice|}}
-      <li>
-        {{choice-editor choice=choice}}
-      </li>
-    {{/each}}
-  </ul>
+  {{#unless question.isNew}}
 
-  Created By: <mark>{{question.user.firstname}}</mark>
+    <div class="button-dashed add-choice">
+      <a>
+        <button {{action 'addChoice'}}>Add Choice</button>
+      </a>
+    </div>
+    <ul>
+      {{#each question.choices as |choice|}}
+        <li>
+          {{choice-editor choice=choice}}
+        </li>
+      {{/each}}
+    </ul>
+
+    Created By: <mark>{{question.user.firstname}}</mark>
+
+  {{/unless}}
+
+
   <div class="row">
     <div class="button-solid">
       <a class="white">
