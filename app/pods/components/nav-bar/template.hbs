@@ -1,0 +1,48 @@
+<header>
+  <nav class="main-nav">
+    <span class="hamburger-parent">
+      <i class="hamburger fas fa-bars"></i>
+    </span>
+    <span class="logo-parent">
+      <a class="logo-link" href="/">
+        <img src="https://online.codingblocks.com/images/online-logo-43dd0ede19c18f0f0aeadceab04cc364.png" alt="online-logo" class="nav-logo pointer">
+      </a>
+    </span>
+
+    <ul class="nav-list">
+
+      <a href="/questions">
+        <li class="nav-items pointer">
+          Questions
+        </li>
+      </a>
+
+      {{!--
+      <a href="https://online.codingblocks.com/">
+        <li class="nav-items pointer">
+          ONLINE COURSES
+        </li>
+      </a> --}} {{#if session.isAuthenticated}} Hi
+      <mark>{{currentUser.user.firstname}}</mark>,
+      <li class="nav-items pointer">
+        <div class="button-solid">
+          <a class="white">
+            <button {{action 'logout'}}>Logout</button>
+          </a>
+        </div>
+      </li>
+      {{else}}
+      <li class="nav-items pointer">
+        <div class="button-solid">
+          <a class="white" href="{{loginUrl}}">
+            <button>Login</button>
+          </a>
+        </div>
+      </li>
+      {{/if}}
+
+
+    </ul>
+  </nav>
+
+</header>

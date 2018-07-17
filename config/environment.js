@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'trouble-maker-frontend',
+    podModulePrefix: 'trouble-maker-frontend/pods',
     environment,
     rootURL: '/',
     locationType: 'auto',
@@ -29,6 +30,11 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.ONEAUTH = {
+      clientID: "2636937167",
+      callbackURL: "http://localhost:4200/callback"
+    }
+    ENV.apiHost = 'http://localhost:8080'
   }
 
   if (environment === 'test') {
