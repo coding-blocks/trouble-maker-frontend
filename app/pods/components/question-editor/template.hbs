@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>
+    {{#if isEditing}}
+      {{input type="text" value=question.title}}
+    {{else}}
+      {{question.title}}
+    {{/if}}
+    <i class="far fa-edit" {{action 'toggleEditing'}}></i>
+  </h1>
+
+  <p>
+    {{#if isEditing}}
+      {{textarea type="text" value=question.description}}
+    {{else}}
+      {{question.description}}
+    {{/if}}
+  </p>
+
+  <div class="button-dashed add-choice">
+    <a>
+      <button {{action 'addChoice'}}>Add Choice</button>
+    </a>
+  </div>
+  <ul>
+    {{#each question.choices as |choice|}}
+      <li>
+        {{choice-editor choice=choice}}
+      </li>
+    {{/each}}
+  </ul>
+
+  Created By: <mark>{{question.user.firstname}}</mark>
+  <div class="row">
+    <div class="button-solid">
+      <a class="white">
+        <button {{action 'saveQuestion'}}>
+          Save Question
+        </button>
+      </a>
+    </div>
+  </div>
+  
+</div>

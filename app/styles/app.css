@@ -8,3 +8,16 @@
   width: 70px;
   margin: 0 93%;
 }
+
+.add-choice {
+  width: 100px;
+}
+
+.choice-actions span {
+  padding: 5px;
+}
+
+.choice-actions span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

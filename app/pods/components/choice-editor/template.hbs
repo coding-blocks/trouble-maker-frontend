@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-6">
+    {{#if isEditing}}
+      <h3> {{input type="text" value=choice.title}} </h3>
+      <p>
+        {{textarea type="text" value=choice.description}}
+      </p>
+    {{else}}
+      <h3>{{choice.title}}</h3>
+      <p>
+        {{choice.description}}
+      </p>
+    {{/if}}
+  </div>
+  <div class="col-6 choice-actions">
+    {{#if isEditing}}
+    <span {{action 'saveChoice'}}>
+        Save 
+        <i class="far fa-save"></i>
+      </span>
+    {{else}}
+      <span {{action 'toggleEditing'}}>
+        Edit
+        <i class="far fa-edit"></i>
+      </span>
+    {{/if}}
+    <span {{action 'deleteChoice'}}>
+      Delete
+      <i class="far fa-trash-alt"></i>
+    </span>
+  </div>
+
+</div>
+
+{{yield}}
