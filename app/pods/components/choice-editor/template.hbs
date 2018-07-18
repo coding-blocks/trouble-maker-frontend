@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row {{if isCorrect 'correct'}}">
   <div class="col-6">
     {{#if isEditing}}
       <h3> {{input type="text" value=choice.title}} </h3>
@@ -24,6 +24,19 @@
         <i class="far fa-edit"></i>
       </span>
     {{/if}}
+
+    {{#if isCorrect}}
+      <span {{action 'markAsIncorrect'}}>
+        <i class="far fa-times-circle"></i>
+        Mark as Incorrect
+      </span>
+    {{else}}
+      <span {{action 'markAsCorrect'}}>
+        <i class="far fa-check-circle"></i>
+        Mark as Correct
+      </span>
+    {{/if}}
+
     <span {{action 'deleteChoice'}}>
       Delete
       <i class="far fa-trash-alt"></i>

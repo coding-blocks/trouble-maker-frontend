@@ -1,3 +1,5 @@
+@import "ember-searchable-select/style";
+
 .card {
   height: auto;
   width: 100%;
@@ -20,4 +22,8 @@
 .choice-actions span:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.correct {
+  background-color: rgba(0, 255, 0, 0.1); 
 }

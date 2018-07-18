@@ -12,6 +12,7 @@ export default Route.extend({
   model (params) {
     const {page, limit} = params
     return this.store.query('question', {
+      include: 'user',
       page: {
         offset: (page-1)*limit > 0 ? (page-1)*limit: 0,
         limit: params.limit

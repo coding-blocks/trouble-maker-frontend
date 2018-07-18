@@ -4,18 +4,18 @@
       <i class="hamburger fas fa-bars"></i>
     </span>
     <span class="logo-parent">
-      <a class="logo-link" href="/">
+      {{#link-to 'index' class="logo-link"}}
         <img src="https://online.codingblocks.com/images/online-logo-43dd0ede19c18f0f0aeadceab04cc364.png" alt="online-logo" class="nav-logo pointer">
-      </a>
+      {{/link-to}}
     </span>
 
     <ul class="nav-list">
 
-      <a href="/questions">
+      {{#link-to 'questions'}}
         <li class="nav-items pointer">
           Questions
         </li>
-      </a>
+      {{/link-to}}
 
       {{!--
       <a href="https://online.codingblocks.com/">

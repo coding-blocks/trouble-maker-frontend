@@ -26,7 +26,11 @@
     <ul>
       {{#each question.choices as |choice|}}
         <li>
-          {{choice-editor choice=choice}}
+          {{choice-editor 
+            choice=choice 
+            isCorrect=(includes correctChoices choice.id)
+            onFlagChange=(action 'markChoice')
+          }}
         </li>
       {{/each}}
     </ul>
