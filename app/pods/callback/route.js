@@ -9,5 +9,10 @@ export default Route.extend({
     }
 
     return this.get('session').authenticate('authenticator:custom', transition.queryParams.code)
+  },
+  afterModel () {
+    this.transitionTo('index', {
+      queryParams: {}
+    })
   }
 });

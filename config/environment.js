@@ -54,7 +54,7 @@ module.exports = function(environment) {
       clientID: "7023763625",
       callbackURL: "http://troublemaker.codingblocks.com/callback"
     }
-    ENV.apiHost = 'http://troublemaker-api.codingblocks.com/'
+    ENV.apiHost = 'http://troublemaker-api.codingblocks.com'
   }
 
   return ENV;
