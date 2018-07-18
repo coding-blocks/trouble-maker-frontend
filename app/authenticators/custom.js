@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default Base.extend({
   api: service(),
+  router: service(),
   restore (data) {
     return Promise.resolve(data)
   },
@@ -12,6 +13,8 @@ export default Base.extend({
     })
   },
   invalidate () {
-    return this.get('api').request('/logout')
+    return this.get('api').request('/logout').then(() => {
+      this.get('router').transitionTo('index')
+    }).catch(() => {})
   }
 })

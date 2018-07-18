@@ -5,6 +5,7 @@ import { underscore } from '@ember/string';
 import { inject as service } from '@ember/service';
 
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
+  session: service(),
   authorize (xhr) {
     let { key } = this.get('session.data.authenticated')
     xhr.setRequestHeader('Authorization', `Bearer ${key}`);
@@ -40,6 +41,13 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
       }
     } else  {
       return this._super(...arguments);
+    }
+  },
+  actions: {
+    error (e, transition) {
+      if(e && e.status === 401) {
+        this.get('session').invalidate()
+      }
     }
   }
 })

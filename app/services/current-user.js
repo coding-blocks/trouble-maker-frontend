@@ -9,6 +9,8 @@ export default Service.extend({
     if (this.get('session.isAuthenticated')) {
       return this.get('api').request('/users/me').then(data => {
         this.set('user', data);
+      }).catch(err => {
+        this.get('session').invalidate()
       })
     }
   }
