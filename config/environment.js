@@ -50,7 +50,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    // here you can enable a production-specific feature
+    ENV.ONEAUTH = {
+      clientID: "7023763625",
+      callbackURL: "http://troublemaker.codingblocks.com/callback"
+    }
+    ENV.apiHost = 'http://troublemaker-api.codingblocks.com/'
   }
 
   return ENV;
