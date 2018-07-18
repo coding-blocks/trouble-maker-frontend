@@ -49,7 +49,7 @@ module.exports = function(environment) {
     ENV.APP.autoboot = false;
   }
 
-  if (environment === 'production') {
+  if (environment === 'production) {
     ENV.ONEAUTH = {
       clientID: "7023763625",
       callbackURL: "http://troublemaker.codingblocks.com/callback"
