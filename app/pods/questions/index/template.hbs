@@ -15,7 +15,12 @@
           {{question.description}}
         </p>
         <div class="button-solid">
+          {{#confirm-dialog
+            dialogClass="custom-confirm-dialog"
+            title="Delete Question"
+            text="Are you sure you want to delete this question?"}}
             <button {{action "deleteQuestion" question}}>Delete</button>
+          {{/confirm-dialog}}
         </div>
         <div class="button-solid">
           {{#link-to 'questions.id' question.id class="white"}}
