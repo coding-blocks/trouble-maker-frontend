@@ -15,6 +15,9 @@
           {{question.description}}
         </p>
         <div class="button-solid">
+            <button {{action "deleteQuestion" question}}>Delete</button>
+        </div>
+        <div class="button-solid">
           {{#link-to 'questions.id' question.id class="white"}}
             <button>Edit</button>
           {{/link-to}}
