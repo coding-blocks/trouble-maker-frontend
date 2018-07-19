@@ -5,6 +5,7 @@
         <button>+ Add Question</button>
       {{/link-to}}
     </div>
+    {{input type="text" class="form-control" placeholder="Filter By Question Name" key-up=(perform searchTask) value=searchString}}
   </div>
   {{#each questions as |question|}}
   <div class="row">
