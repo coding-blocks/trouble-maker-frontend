@@ -1,4 +1,6 @@
 @import "ember-searchable-select/style";
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
 
 .card {
   height: auto;
@@ -25,5 +27,22 @@
 }
 
 .correct {
-  background-color: rgba(0, 255, 0, 0.1); 
+  background-color: rgba(0, 255, 0, 0.1);
+}
+.custom-confirm-dialog {
+
+  .dialog-title{
+    background-color: #bbc7bc;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  .dialog-text{
+    margin: 0px;
+  }
+
+  .dialog-footer{
+    background-color: #fcffb0;
+    padding: 5px;
+  }
 }
