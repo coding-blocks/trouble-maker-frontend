@@ -1,12 +1,15 @@
 <div class="container">
-  <div class="row">
+  <div>
     <div class="button-solid">
       {{#link-to 'questions.new' class="white"}}
         <button>+ Add Question</button>
       {{/link-to}}
     </div>
-    {{input type="text" class="form-control" placeholder="Filter By Question Name" key-up=(perform searchTask) value=searchString}}
-  </div>
+    <br>
+    <div class="row justify-content-center">
+      <p class="card-title">Filter By Question Name:   </p> {{input type="text" class="form-control" placeholder="Enter Question Name" key-up=(perform searchTask) value=searchString}}
+    </div>
+    </div>
   {{#each questions as |question|}}
   <div class="row">
     <div class="card">
