@@ -1,0 +1,8 @@
+{
+  "name": "trouble-maker-frontend",
+  "dependencies": {
+    "moment": "^2.10.0",
+    "material-datetime-picker": "^2.4.0",
+    "rome": "^2.1.22"
+  }
+}

@@ -1,4 +1,4 @@
-@import "ember-searchable-select/style";
+@import "ember-power-select";
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
 
@@ -45,4 +45,12 @@
     background-color: #fcffb0;
     padding: 5px;
   }
+}
+
+.c-datepicker__clock {
+  padding-bottom: 200px
+}
+
+.c-datepicker__header-date {
+  height: 165px;
 }
