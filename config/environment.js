@@ -7,6 +7,10 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    sentry: {
+      dsn: 'http://4ee9e8fc8ad6493c9ef5bb68077378b4@sentry.cb.lk/26',
+      globalErrorCatching: true
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -35,6 +39,7 @@ module.exports = function(environment) {
       callbackURL: "http://localhost:4200/callback"
     }
     ENV.apiHost = 'http://localhost:8080'
+    ENV.sentry.development = true
   }
 
   if (environment === 'test') {
@@ -55,6 +60,7 @@ module.exports = function(environment) {
       callbackURL: "http://troublemaker.codingblocks.com/callback"
     }
     ENV.apiHost = 'http://troublemaker-api.codingblocks.com'
+    ENV.sentry.development = false
   }
 
   return ENV;
