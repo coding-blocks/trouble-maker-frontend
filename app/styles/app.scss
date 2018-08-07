@@ -54,3 +54,12 @@
 .c-datepicker__header-date {
   height: 165px;
 }
+
+.info-text {
+  display: flex;
+  font-weight: bold;
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}

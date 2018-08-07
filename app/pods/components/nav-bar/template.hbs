@@ -10,18 +10,20 @@
     </span>
 
     <ul class="nav-list">
+      
+      {{#if (eq currentUser.user.role 'ADMIN')}}
+        {{#link-to 'questions'}}
+          <li class="nav-items pointer">
+            Questions
+          </li>
+        {{/link-to}}
 
-      {{#link-to 'questions'}}
-        <li class="nav-items pointer">
-          Questions
-        </li>
-      {{/link-to}}
-
-      {{#link-to 'quiz'}}
-        <li class="nav-items pointer">
-          Quiz
-        </li>
-      {{/link-to}}
+        {{#link-to 'quiz'}}
+          <li class="nav-items pointer">
+            Quiz
+          </li>
+        {{/link-to}}
+      {{/if}}
 
       {{!--
       <a href="https://online.codingblocks.com/">
