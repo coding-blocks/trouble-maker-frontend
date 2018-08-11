@@ -30,8 +30,11 @@
         <li class="nav-items pointer">
           ONLINE COURSES
         </li>
-      </a> --}} {{#if session.isAuthenticated}} Hi
-      <mark>{{currentUser.user.firstname}}</mark>,
+      </a> --}} 
+      {{#if session.isAuthenticated}}
+      <li class="nav-items pointer">
+        Hi {{currentUser.user.firstname}}
+      </li>
       <li class="nav-items pointer">
         <div class="button-solid">
           <a class="white">
