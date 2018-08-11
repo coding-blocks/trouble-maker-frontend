@@ -1,40 +1,52 @@
-<div class="row {{if isCorrect 'correct'}}">
-  <div class="col-6">
+<div class="row justify-content-center align-items-center {{if isCorrect 'correct'}}">
+  <div class="col-8">
     {{#if isEditing}}
-      <h3> {{input type="text" value=choice.title}} </h3>
-      <p>
-        {{textarea type="text" value=choice.description}}
-      </p>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-2">
+        <label>Choice Title:</label>
+      </div>
+      <div class="col-10">
+        <h3> {{input type="text" class="input-text" value=choice.title}} </h3>
+      </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-2">
+        <label>Choice Description:</label>
+      </div>
+      <div class="col-10">
+        <p>
+          {{textarea type="text" class="input-text py-4" value=choice.description}}
+        </p>
+      </div>
+    </div>
     {{else}}
-      <h3>{{choice.title}}</h3>
-      <p>
-        {{choice.description}}
-      </p>
+    <h3 class="red">{{choice.title}}</h3>
+    <p>
+      {{choice.description}}
+    </p>
     {{/if}}
   </div>
-  <div class="col-6 choice-actions">
+  <div class="col-4 choice-actions red">
     {{#if isEditing}}
     <span {{action 'saveChoice'}}>
-        Save 
-        <i class="far fa-save"></i>
-      </span>
+      Save
+      <i class="far fa-save"></i>
+    </span>
     {{else}}
-      <span {{action 'toggleEditing'}}>
-        Edit
-        <i class="far fa-edit"></i>
-      </span>
-    {{/if}}
-
-    {{#if isCorrect}}
-      <span {{action 'markAsIncorrect'}}>
-        <i class="far fa-times-circle"></i>
-        Mark as Incorrect
-      </span>
+    <span {{action 'toggleEditing'}}>
+      Edit
+      <i class="far fa-edit"></i>
+    </span>
+    {{/if}} {{#if isCorrect}}
+    <span {{action 'markAsIncorrect'}}>
+      <i class="far fa-times-circle"></i>
+      Mark as Incorrect
+    </span>
     {{else}}
-      <span {{action 'markAsCorrect'}}>
-        <i class="far fa-check-circle"></i>
-        Mark as Correct
-      </span>
+    <span {{action 'markAsCorrect'}}>
+      <i class="far fa-check-circle"></i>
+      Mark as Correct
+    </span>
     {{/if}}
 
     <span {{action 'deleteChoice'}}>
@@ -42,7 +54,5 @@
       <i class="far fa-trash-alt"></i>
     </span>
   </div>
-
 </div>
-
 {{yield}}

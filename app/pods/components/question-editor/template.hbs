@@ -24,7 +24,7 @@
       <button {{action 'addChoice'}}>Add Choice</button>
     </a>
   </div>
-  <ul>
+  <ul class="px-0">
     {{#each question.choices as |choice|}}
     <li class="justify-content-center">
       {{choice-editor choice=choice isCorrect=(includes correctChoices choice.id) onFlagChange=(action 'markChoice') }}
