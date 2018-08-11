@@ -5,33 +5,32 @@
     </span>
     <span class="logo-parent">
       {{#link-to 'index' class="logo-link"}}
-        <img src="https://online.codingblocks.com/images/online-logo-43dd0ede19c18f0f0aeadceab04cc364.png" alt="online-logo" class="nav-logo pointer">
+        <img src="https://online.codingblocks.com/images/online-logo-43dd0ede19c18f0f0aeadceab04cc364.png" alt="online-logo" class="nav-logo pointer"> 
       {{/link-to}}
     </span>
-
     <ul class="nav-list">
-      
-      {{#if (eq currentUser.user.role 'ADMIN')}}
+      {{#if (eq currentUser.user.role 'ADMIN')}} 
         {{#link-to 'questions'}}
           <li class="nav-items pointer">
             Questions
           </li>
         {{/link-to}}
-
         {{#link-to 'quiz'}}
           <li class="nav-items pointer">
             Quiz
           </li>
-        {{/link-to}}
-      {{/if}}
-
+        {{/link-to}} 
+      {{/if}} 
       {{!--
       <a href="https://online.codingblocks.com/">
         <li class="nav-items pointer">
           ONLINE COURSES
         </li>
-      </a> --}} {{#if session.isAuthenticated}} Hi
-      <mark>{{currentUser.user.firstname}}</mark>,
+      </a> --}} 
+      {{#if session.isAuthenticated}}
+      <li class="nav-items pointer">
+        Hi,{{currentUser.user.firstname}}
+      </li>
       <li class="nav-items pointer">
         <div class="button-solid">
           <a class="white">
@@ -48,9 +47,6 @@
         </div>
       </li>
       {{/if}}
-
-
     </ul>
   </nav>
-
 </header>
