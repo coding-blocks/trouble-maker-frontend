@@ -1,7 +1,9 @@
-<div class="info-text">
-  {{#if user.id}}
-    Welcome {{user.firstname}}
-  {{else}}
-    Login to continue.
-  {{/if}}
+<div class="home-container">
+  <div class="info-text red">
+    {{#if user.id}}
+      Welcome, {{user.firstname}}!
+    {{else}}
+      Please Login to peep under the hood.
+    {{/if}}
+  </div>
 </div>
