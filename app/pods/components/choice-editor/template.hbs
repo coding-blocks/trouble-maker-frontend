@@ -6,7 +6,7 @@
           <label>Choice Title:</label>
         </div>
         <div class="col-5 input-group">
-          <h3> {{input type="text" class="input-text" value=choice.title}} </h3>
+          <h3> {{input type="text" class="input-text" placeholder= "Enter the choice title" value=choice.title}} </h3>
         </div>
         <div class="col-5">
           {{markdown-to-html choice.title}}
@@ -18,7 +18,7 @@
       </div>
       <div class="col-5 input-group">
         <p>
-          {{textarea type="text" class="input-text py-4" value=choice.description}}
+          {{textarea type="text" class="input-text py-4" placeholder="Enter the choice description" value=choice.description}}
         </p>
       </div>
       <div class="col-5">

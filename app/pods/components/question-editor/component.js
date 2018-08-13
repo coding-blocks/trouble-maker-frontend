@@ -11,10 +11,7 @@ export default Component.extend({
       this.toggleProperty('isEditing')
     },
     addChoice () {
-      const newChoice = this.get('store').createRecord('choice', {
-        title: '*New Choice, EDIT ME',
-        description: 'EDIT ME'
-      })
+      const newChoice = this.get('store').createRecord('choice')
       newChoice.set('question', this.get('question'))
 
       this.get('question.choices').addObject(newChoice)
@@ -33,7 +30,7 @@ export default Component.extend({
 
       if (!choice.get('id'))
         return this.get('notify').error('You must edit and save this choice first before marking it!')
-      
+
       if (flag == 'incorrect') {
         // need to mark this choice as incorrect
         // remove from correctChoices Array
@@ -51,7 +48,7 @@ export default Component.extend({
       }).then(() => {
         this.set('correctChoices', [...correctChoices])
       })
-      
+
 
     }
   }
