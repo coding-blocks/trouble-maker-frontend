@@ -1,53 +1,48 @@
-<div class="container">
-  <h1>
-    {{#if isEditing}}
-      {{input type="text" value=question.title}}
-    {{else}}
-      {{question.title}}
-    {{/if}}
-    <i class="far fa-edit" {{action 'toggleEditing'}}></i>
-  </h1>
-
-  <p>
-    {{#if isEditing}}
-      {{textarea type="text" value=question.description}}
-    {{else}}
-      {{question.description}}
-    {{/if}}
-  </p>
-
-  {{#unless question.isNew}}
-
-    <div class="button-dashed add-choice">
-      <a>
-        <button {{action 'addChoice'}}>Add Choice</button>
-      </a>
+<div class="container pt-5">
+  <div class="row justify-content-center red">
+    <h2>Add a new Questions</h2>
+  </div>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-2">Title:
     </div>
-    <ul>
-      {{#each question.choices as |choice|}}
-        <li>
-          {{choice-editor 
-            choice=choice 
-            isCorrect=(includes correctChoices choice.id)
-            onFlagChange=(action 'markChoice')
-          }}
-        </li>
-      {{/each}}
-    </ul>
+    <div class="col-10 input-group">
+      {{input type="text" class="input-text" value=question.title}}
+    </div>
+  </div>
 
-    Created By: <mark>{{question.user.firstname}}</mark>
-
+  <div class="row justify-content-center align-items-center">
+    <div class="col-2">Description:
+    </div>
+    <div class="col-10">
+      {{textarea type="text" class="input-text py-4" value=question.description}}
+    </div>
+  </div>
+  {{#unless question.isNew}}
+  <div class="row flex-column justify-content-center">
+  <div class="button-dashed add-choice">
+    <a>
+      <button {{action 'addChoice'}}>Add Choice</button>
+    </a>
+  </div>
+  <ul class="px-0">
+    {{#each question.choices as |choice|}}
+    <li class="justify-content-center">
+      {{choice-editor choice=choice isCorrect=(includes correctChoices choice.id) onFlagChange=(action 'markChoice') }}
+    </li>
+    {{/each}}
+  </ul>
+  Created By: {{question.user.firstname}}
+</div>
   {{/unless}}
 
 
-  <div class="row">
-    <div class="button-solid">
-      <a class="white">
-        <button {{action 'saveQuestion'}}>
-          Save Question
-        </button>
-      </a>
+  <div class="row justify-content-center">
+      <div class="button-solid">
+        <a class="white">
+          <button {{action 'saveQuestion'}}>
+            Save Question
+          </button>
+        </a>
     </div>
   </div>
-  
 </div>
