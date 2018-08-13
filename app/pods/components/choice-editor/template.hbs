@@ -1,10 +1,30 @@
 <div class="row {{if isCorrect 'correct'}}">
-  <div class="col-6">
+  <div class="col-8">
     {{#if isEditing}}
-      <h3> {{input type="text" value=choice.title}} </h3>
-      <p>
-        {{textarea type="text" value=choice.description}}
-      </p>
+      <div class="row justify-content-center align-items-center">
+        <div class="col-2">
+          <label>Choice Title:</label>
+        </div>
+        <div class="col-5 input-group">
+          <h3> {{input type="text" class="input-text" value=choice.title}} </h3>
+        </div>
+        <div class="col-5">
+          {{markdown-to-html choice.title}}
+        </div>
+      </div>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-2">
+        <label>Choice Description:</label>
+      </div>
+      <div class="col-5 input-group">
+        <p>
+          {{textarea type="text" class="input-text py-4" value=choice.description}}
+        </p>
+      </div>
+      <div class="col-5">
+        {{markdown-to-html choice.description}}
+      </div>
+    </div>
     {{else}}
       <h3>{{choice.title}}</h3>
       <p>
@@ -12,10 +32,10 @@
       </p>
     {{/if}}
   </div>
-  <div class="col-6 choice-actions">
+  <div class="col-4 choice-actions">
     {{#if isEditing}}
     <span {{action 'saveChoice'}}>
-        Save 
+        Save
         <i class="far fa-save"></i>
       </span>
     {{else}}

@@ -1,15 +1,26 @@
-<div class="container">
-  <div>
-    <div class="button-solid">
-      {{#link-to 'questions.new' class="white"}}
-        <button>+ Add Question</button>
-      {{/link-to}}
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-5"></div>
+    <div class="col-6">
+      <label class="col-6">Filter the Question:</label>
     </div>
-    <br>
-    <div class="row justify-content-center">
-      <p class="card-title">Filter By Question Name:   </p> {{input type="text" class="form-control" placeholder="Enter Question Name" key-up=(perform searchTask) value=searchString}}
+  </div>
+  <div class="row justify-content-center">
+    <div class="input-search nav-search col-8 justify-content-center">
+      {{input type="text"  placeholder="Enter Question Name" key-up=(perform searchTask) value=searchString}}
+      <img src="http://online.codingblocks.com/images/searchicon-06d8faf96de7c883b5440b6594e39eda.png" alt="search">
     </div>
+  </div>
+  <div class="row">
+    <div class="col-5"></div>
+    <div class="col-6">
+      <div class="button-solid">
+        {{#link-to 'questions.new' class="white"}}
+          <button>+ Add Questions</button>
+        {{/link-to}}
+      </div>
     </div>
+  </div>
   {{#each questions as |question|}}
   <div class="row">
     <div class="card">
@@ -18,18 +29,25 @@
         <p class="card-text">
           {{question.description}}
         </p>
-        <div class="button-solid">
-          {{#confirm-dialog
-            dialogClass="custom-confirm-dialog"
-            title="Delete Question"
-            text="Are you sure you want to delete this question?"}}
-            <button {{action "deleteQuestion" question}}>Delete</button>
-          {{/confirm-dialog}}
-        </div>
-        <div class="button-solid">
-          {{#link-to 'questions.id' question.id class="white"}}
-            <button>Edit</button>
-          {{/link-to}}
+        <div class="row">
+          <div class="col-7"></div>
+          <div class="col-2">
+            <div class="button-solid">
+              {{#confirm-dialog
+                dialogClass="custom-confirm-dialog"
+                title="Delete Question"
+                text="Are you sure you want to delete this question?"}}
+                <button {{action "deleteQuestion" question}}>Delete</button>
+              {{/confirm-dialog}}
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="button-solid">
+              {{#link-to 'questions.id' question.id class="white"}}
+                <button>Edit</button>
+              {{/link-to}}
+            </div>
+          </div>
         </div>
       </div>
     </div>

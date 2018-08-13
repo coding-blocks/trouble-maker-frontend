@@ -1,18 +1,30 @@
 <div class="container">
   <div class="row">
+    <div class="col-4"></div>
+    <div class="col-6">
+      <h1>Add new Quiz:</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center">
     <div class="col-2">
       <label>Title</label>
     </div>
-    <div class="col-6">
-      {{input type="text" value=quiz.title}}
+    <div class="col-6 input-group">
+      {{input type="text" class="input-text" value=quiz.title}}
+    </div>
+    <div class="col-3">
+      {{markdown-to-html quiz.title}}
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center align-items-center">
     <div class="col-2">
       <label>Description</label>
     </div>
-    <div class="col-6">
-      {{textarea type="text" value=quiz.description}}
+    <div class="col-6 input-group">
+      {{textarea type="text" class="input-text py-4" value=quiz.description}}
+    </div>
+    <div class="col-3">
+      {{markdown-to-html quiz.description}}
     </div>
   </div>
   {{#unless quiz.isNew}}
@@ -22,9 +34,9 @@
       </div>
       <div class="col-6">
         {{#power-select-multiple
-        search=(perform questionFilterTask) 
+        search=(perform questionFilterTask)
         selected=quiz.questions
-        onchange=(action (mut quiz.questions )) 
+        onchange=(action (mut quiz.questions ))
         as |question|}}
           {{question.title}}
         {{/power-select-multiple}}
@@ -32,29 +44,29 @@
     </div>
    {{/unless}}
 
-  <div class="row">
+  <div class="row justify-content-center align-items-center">
     <div class="col-2">
       <label>Image Url:</label>
     </div>
-    <div class="col-6">
-      {{input type="text" value=quiz.image}}
+    <div class="col-6 input-group">
+      {{input type="text" class="input-text" value=quiz.image}}
     </div>
   </div>
 
-  <div class="row">
+  <div class="row justify-content-center align-items-center">
     <div class="col-2">
       <label>Duration </label>
     </div>
-    <div class="col-6">
-      {{input type="text" value=quiz.duration}}
+    <div class="col-6 input-group">
+      {{input type="text" class="input-text" value=quiz.duration}}
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center align-items-center">
     <div class="col-2">
       <label>Max Attempts</label>
     </div>
-    <div class="col-6">
-      {{input type="text" value=quiz.maxAttempts}}
+    <div class="col-6 input-group">
+      {{input type="text" class="input-text" value=quiz.maxAttempts}}
     </div>
   </div>
   <div class="row">
@@ -77,8 +89,13 @@
     </div>
   </div>
 
-  <div class="button-solid">
-    <button {{action 'save'}}>Save Changes</button>
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-6">
+      <div class="button-solid">
+        <button {{action 'save'}}>Save Changes</button>
+      </div>
+    </div>
   </div>
 </div>
 

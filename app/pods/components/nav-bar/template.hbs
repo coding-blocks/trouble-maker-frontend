@@ -10,7 +10,7 @@
     </span>
 
     <ul class="nav-list">
-      
+
       {{#if (eq currentUser.user.role 'ADMIN')}}
         {{#link-to 'questions'}}
           <li class="nav-items pointer">
@@ -30,8 +30,9 @@
         <li class="nav-items pointer">
           ONLINE COURSES
         </li>
-      </a> --}} {{#if session.isAuthenticated}} Hi
-      <mark>{{currentUser.user.firstname}}</mark>,
+      </a> --}} {{#if session.isAuthenticated}}<li class="nav-items pointer">
+      Hi,<mark>{{currentUser.user.firstname}}</mark>
+    </li>
       <li class="nav-items pointer">
         <div class="button-solid">
           <a class="white">
