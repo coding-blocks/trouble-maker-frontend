@@ -1,20 +1,34 @@
-<div class="container">
-  <h1>
-    {{#if isEditing}}
-      {{input type="text" value=question.title}}
-    {{else}}
-      {{question.title}}
-    {{/if}}
-    <i class="far fa-edit" {{action 'toggleEditing'}}></i>
-  </h1>
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-8">
+      <h1>Add a new Question:</h1>
+    </div>
+  </div>
 
-  <p>
-    {{#if isEditing}}
-      {{textarea type="text" value=question.description}}
-    {{else}}
-      {{question.description}}
-    {{/if}}
-  </p>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-2">
+      <label>Question Title:</label>
+    </div>
+    <div class="col-5 input-group">
+      {{input type="text" class="input-text" value=question.title}}
+    </div>
+    <div class="col-5">
+      {{markdown-to-html question.title}}
+    </div>
+  </div>
+
+  <div class="row justify-content-center align-items-center">
+    <div class="col-2">
+      <label>Question Description:</label>
+    </div>
+    <div class="col-5 input-group">
+      {{textarea type="text" class="input-text py-4" value=question.description}}
+    </div>
+    <div class="col-5">
+      {{markdown-to-html question.description}}
+    </div>
+  </div>
 
   {{#unless question.isNew}}
 
@@ -25,9 +39,9 @@
     </div>
     <ul>
       {{#each question.choices as |choice|}}
-        <li>
-          {{choice-editor 
-            choice=choice 
+        <li class="justify-content-center">
+          {{choice-editor
+            choice=choice
             isCorrect=(includes correctChoices choice.id)
             onFlagChange=(action 'markChoice')
           }}
@@ -41,13 +55,16 @@
 
 
   <div class="row">
-    <div class="button-solid">
-      <a class="white">
-        <button {{action 'saveQuestion'}}>
-          Save Question
-        </button>
-      </a>
+    <div class="col-5"></div>
+    <div class="col-7">
+      <div class="button-solid">
+        <a class="white">
+          <button {{action 'saveQuestion'}}>
+            Save Question
+          </button>
+        </a>
+      </div>
     </div>
   </div>
-  
+
 </div>
