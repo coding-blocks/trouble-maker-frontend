@@ -11,7 +11,7 @@
       <label>Question Title:</label>
     </div>
     <div class="col-5 input-group">
-      {{input type="text" class="input-text" value=question.title}}
+      {{input type="text" class="input-text" placeholder="This is a new question, enter title here" value=question.title}}
     </div>
     <div class="col-5">
       {{markdown-to-html question.title}}
@@ -23,7 +23,7 @@
       <label>Question Description:</label>
     </div>
     <div class="col-5 input-group">
-      {{textarea type="text" class="input-text py-4" value=question.description}}
+      {{textarea type="text" class="input-text py-4" placeholder="Edit this description" value=question.description}}
     </div>
     <div class="col-5">
       {{markdown-to-html question.description}}
