@@ -14,7 +14,7 @@
       {{input type="text" class="input-text" value=question.title}}
     </div>
     <div class="col-5">
-      {{markdown-to-html question.title}}
+      {{markdown-to-html question.title extensions='katex'}}
     </div>
   </div>
 
@@ -26,7 +26,7 @@
       {{textarea type="text" class="input-text py-4" value=question.description}}
     </div>
     <div class="col-5">
-      {{markdown-to-html question.description}}
+      {{markdown-to-html question.description extensions='katex'}}
     </div>
   </div>
 

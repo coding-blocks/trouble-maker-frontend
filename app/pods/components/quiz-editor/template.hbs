@@ -24,7 +24,7 @@
       {{textarea type="text" class="input-text py-4" value=quiz.description}}
     </div>
     <div class="col-3">
-      {{markdown-to-html quiz.description}}
+      {{markdown-to-html quiz.description extensions='katex'}}
     </div>
   </div>
   {{#unless quiz.isNew}}

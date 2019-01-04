@@ -9,7 +9,7 @@
           <h3> {{input type="text" class="input-text" value=choice.title}} </h3>
         </div>
         <div class="col-5">
-          {{markdown-to-html choice.title}}
+          {{markdown-to-html choice.title extensions='katex'}}
         </div>
       </div>
     <div class="row justify-content-center align-items-center">
@@ -22,7 +22,7 @@
         </p>
       </div>
       <div class="col-5">
-        {{markdown-to-html choice.description}}
+        {{markdown-to-html choice.description extensions='katex'}}
       </div>
     </div>
     {{else}}
