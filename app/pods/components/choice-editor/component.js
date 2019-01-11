@@ -8,6 +8,10 @@ import { inject as service } from '@ember/service';
 export default Component.extend({
   notify: service(),
   isEditing: false,
+  init () {
+    this._super(...arguments)
+    this.set('isEditing', !!this.get('choice.isNew'))
+  },
   actions: {
     toggleEditing () {
       this.toggleProperty('isEditing')

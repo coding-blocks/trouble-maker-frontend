@@ -11,10 +11,7 @@ export default Component.extend({
       this.toggleProperty('isEditing')
     },
     addChoice () {
-      const newChoice = this.get('store').createRecord('choice', {
-        title: '*New Choice, EDIT ME',
-        description: 'EDIT ME'
-      })
+      const newChoice = this.get('store').createRecord('choice', {})
       newChoice.set('question', this.get('question'))
 
       this.get('question.choices').addObject(newChoice)
