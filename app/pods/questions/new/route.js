@@ -5,8 +5,6 @@ export default Route.extend({
   currentUser: service(),
   model () {
     return this.store.createRecord('question', {
-      title: '',
-      description: '',
       user: this.get('currentUser.user')
     })
   },
