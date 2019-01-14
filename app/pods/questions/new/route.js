@@ -4,11 +4,9 @@ import { inject as service } from '@ember/service'
 export default Route.extend({
   currentUser: service(),
   model () {
-    return this.store.createRecord('question', {
-      title: '',
-      description: '',
-      user: this.get('currentUser.user')
-    })
+    const newQuestion = this.store.createRecord('question', {})
+    newQuestion.set('user', this.get('currentUser.user'))
+    return newQuestion
   },
   setupController (controller, model) {
     controller.set("question", model)
