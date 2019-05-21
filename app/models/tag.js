@@ -1,6 +1,5 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  name: DS.attr(),
-  createdBy: DS.belongsTo('user')
+  name: DS.attr()
 })

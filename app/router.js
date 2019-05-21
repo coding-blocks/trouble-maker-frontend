@@ -18,7 +18,7 @@ Router.map(function() {
   });
   this.route('err', {path: '/:code'});
   this.route('tags', function() {
-    this.route('id');
+    this.route('id', {path: '/:id'});
     this.route('new');
   });
 });
