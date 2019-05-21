@@ -36,6 +36,7 @@
     "ember-cli-showdown": "^4.4.4",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.0.0",
+    "ember-cli-update": "^0.34.10",
     "ember-data": "~3.3.0",
     "ember-datetime-picker": "^0.2.1",
     "ember-decorators": "^2.2.0",
