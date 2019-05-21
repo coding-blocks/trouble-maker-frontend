@@ -7,7 +7,7 @@ export default Route.extend({
   model (params) {
     return RSVP.hash({
       question: this.store.findRecord('question', params.id, {
-        include: 'user,choices'
+        include: 'user,choices,tags'
       }),
       answers: this.api.request(`/questions/${params.id}/answers`)
     })
