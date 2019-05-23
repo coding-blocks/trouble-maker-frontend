@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import { task, timeout } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
 
 export default Component.extend({
@@ -6,6 +7,21 @@ export default Component.extend({
   api: service(),
   notify: service(),
   isEditing: false,
+  tagFilterTask: task(function *(str = '') {
+    yield timeout(250)
+    const tags = yield this.get('store').query('tag', {
+      filter: {
+        name: {
+          $iLike: `%${str}%`
+        }
+      }
+    })
+    return tags.toArray()
+  }),
+  init() {
+    this._super(...arguments)
+    this.get('tagFilterTask').perform()
+  },
   actions: {
     toggleEditing () {
       this.toggleProperty('isEditing')

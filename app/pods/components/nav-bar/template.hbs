@@ -12,6 +12,12 @@
     <ul class="nav-list">
 
       {{#if (eq currentUser.user.role 'ADMIN')}}
+        {{#link-to 'tags'}}
+          <li class="nav-items pointer">
+            Tags
+          </li>
+        {{/link-to}}
+
         {{#link-to 'questions'}}
           <li class="nav-items pointer">
             Questions

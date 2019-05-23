@@ -30,6 +30,22 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-2">
+      <label>Tags</label>
+    </div>
+    <div class="col-6">
+      {{#power-select-multiple
+      search=(perform tagFilterTask)
+      options= tagFilterTask.lastSuccessful.value
+      selected=question.tags
+      onchange=(action (mut question.tags ))
+      as |tag|}}
+        {{tag.name}}
+      {{/power-select-multiple}}
+    </div>
+  </div>
+
   {{#unless question.isNew}}
 
     <div class="button-dashed add-choice">

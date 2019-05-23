@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-6">
+      <h1>Add new Tag:</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-2">
+      <label>Name</label>
+    </div>
+    <div class="col-6 input-group">
+      {{input type="text" class="input-text" value=tag.name}}
+    </div>
+    <div class="col-3">
+      {{markdown-to-html tag.name}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-6">
+      <div class="button-solid">
+        <button {{action 'save'}}>Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

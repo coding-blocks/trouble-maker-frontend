@@ -17,6 +17,10 @@ Router.map(function() {
     this.route('id', {path: '/:id'});
   });
   this.route('err', {path: '/:code'});
+  this.route('tags', function() {
+    this.route('id', {path: '/:id'});
+    this.route('new');
+  });
 });
 
 export default Router;
