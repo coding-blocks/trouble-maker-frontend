@@ -7,7 +7,7 @@ export default Component.extend({
   api: service(),
   notify: service(),
   isEditing: false,
-  tagFilterTask: task(function *(str) {
+  tagFilterTask: task(function *(str = '') {
     yield timeout(250)
     const tags = yield this.get('store').query('tag', {
       filter: {
@@ -18,6 +18,10 @@ export default Component.extend({
     })
     return tags.toArray()
   }),
+  init() {
+    this._super(...arguments)
+    this.get('tagFilterTask').perform()
+  },
   actions: {
     toggleEditing () {
       this.toggleProperty('isEditing')

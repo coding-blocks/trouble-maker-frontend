@@ -4,7 +4,7 @@ export default Controller.extend({
   actions: {
     saveTag () {
       return this.get('tag').save().then(tag => {
-        this.transitionToRoute('tag.id', tag.id)
+        this.transitionToRoute('tags.id', tag.id)
       })
     }
   }
