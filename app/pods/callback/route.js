@@ -9,7 +9,7 @@ export default Route.extend({
       return ;
     }
 
-    return this.get('session').authenticate('authenticator:custom', transition.queryParams.code)
+    return this.get('session').authenticate('authenticator:custom', transition.to.queryParams.code)
       .then(() => this.get('currentUser').load())
   },
   afterModel () {
