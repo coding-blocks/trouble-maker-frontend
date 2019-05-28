@@ -18,8 +18,6 @@ export default Service.extend({
           this.set('user', data)
           this.get('router').transitionTo('err', 'ADMIN_ONLY')
         }
-      }).catch(err => {
-        this.get('session').invalidate()
       })
     }
   }
