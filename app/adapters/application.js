@@ -12,7 +12,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   },
   host: env.apiHost,
   namespace: 'api',
-  pathForType: function (type) {
+  pathForType: function () {
     const original = this._super(...arguments)
     return underscore(original)
   },
@@ -44,7 +44,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     }
   },
   actions: {
-    error (e, transition) {
+    error (e) {
       if(e && e.status === 401) {
         this.get('session').invalidate()
       }

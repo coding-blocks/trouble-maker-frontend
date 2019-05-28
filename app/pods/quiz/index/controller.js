@@ -6,8 +6,6 @@ export default Controller.extend({
   searchTask: task(function * () {
     yield timeout(250)
 
-    let searchStr = this.get('searchString').trim()
-
     const quizzes = yield this.get('store').query('quiz', {
       filter: {
         title: {
