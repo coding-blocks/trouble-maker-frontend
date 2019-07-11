@@ -11,6 +11,18 @@
       <img src="http://online.codingblocks.com/images/searchicon-06d8faf96de7c883b5440b6594e39eda.png" alt="search">
     </div>
   </div>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      {{#power-select-multiple 
+      search=(perform tagsFilterTask)
+      selected=filterTags
+      onchange=(action (pipe (action (mut filterTags)) (perform searchTask)))
+      placeholder="Filter by tags"
+      as |tag|}}
+      {{tag.title}}
+      {{/power-select-multiple}}
+    </div>
+  </div>
   <div class="row">
     <div class="col-5"></div>
     <div class="col-6">

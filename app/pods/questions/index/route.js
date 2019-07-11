@@ -21,5 +21,6 @@ export default Route.extend({
   },
   setupController (controller, model) {
     controller.set("questions", model)
+    controller.set("tags", model.filterTags)
   }
 });
