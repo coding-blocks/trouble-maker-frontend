@@ -7,7 +7,7 @@
   </div>
   <div class="row justify-content-center align-items-center">
     <div class="col-2">
-      <label>Title</label>
+      <label>Title *</label>
     </div>
     <div class="col-6 input-group">
       {{input type="text" class="input-text" value=quiz.title}}
@@ -18,7 +18,7 @@
   </div>
   <div class="row justify-content-center align-items-center">
     <div class="col-2">
-      <label>Description</label>
+      <label>Description *</label>
     </div>
     <div class="col-6 input-group">
       {{textarea type="text" class="input-text py-4" value=quiz.description}}
@@ -46,7 +46,7 @@
 
   <div class="row justify-content-center align-items-center">
     <div class="col-2">
-      <label>Image Url:</label>
+      <label>Image Url *</label>
     </div>
     <div class="col-6 input-group">
       {{input type="text" class="input-text" value=quiz.image}}
@@ -55,7 +55,7 @@
 
   <div class="row justify-content-center align-items-center">
     <div class="col-2">
-      <label>Duration </label>
+      <label>Duration *</label>
     </div>
     <div class="col-6 input-group">
       {{input type="text" class="input-text" value=quiz.duration}}
@@ -63,7 +63,7 @@
   </div>
   <div class="row justify-content-center align-items-center">
     <div class="col-2">
-      <label>Max Attempts</label>
+      <label>Max Attempts *</label>
     </div>
     <div class="col-6 input-group">
       {{input type="text" class="input-text" value=quiz.maxAttempts}}
@@ -71,7 +71,7 @@
   </div>
   <div class="row">
     <div class="col-2">
-      <label>Start Date</label>
+      <label>Start Date *</label>
     </div>
     <div class="col-6">
       {{ember-datetime-picker value=startDateMoment }}
@@ -80,7 +80,7 @@
   </div>
   <div class="row">
     <div class="col-2">
-      <label>End Date</label>
+      <label>End Date *</label>
     </div>
     <div class="col-6">
       {{ember-datetime-picker value=endDateMoment }}
