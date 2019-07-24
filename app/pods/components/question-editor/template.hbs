@@ -65,7 +65,20 @@
         {{/power-select-multiple}}
       </div>
     </div>
-
+    <div class="row"></div>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-2">
+        <label>Create New Tag: </label>
+      </div>
+      <div class="col-5 input-group">
+        {{input type="text" class="input-text" placeholder="Enter Tag's Title" value=tagTitle}}
+      </div>
+      <div class="col-5">
+        <span {{action 'createNewTag'}}>
+        Save
+        <i class="far fa-save"></i>
+      </span></div>
+    </div>
     Created By: <mark>{{question.user.firstname}}</mark>
 
   {{/unless}}

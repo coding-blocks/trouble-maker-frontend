@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 import { task, timeout } from 'ember-concurrency';
 
 export default Component.extend({
+  currentUser: service(),
   store: service(),
   api: service(),
   notify: service(),
@@ -60,8 +61,18 @@ export default Component.extend({
       }).then(() => {
         this.set('correctChoices', [...correctChoices])
       })
-      
+    },
+    createNewTag() {
+      const onSuccess = () => this.get('notify').success('New Tag Created')
 
+      let newTag = this.store.createRecord('tag', {
+        title: this.get('tagTitle'),
+      })
+
+      newTag.set('user', this.get('currentUser.user'))
+      console.log(newTag.user)
+      newTag.save()
+      .then(onSuccess)
     }
   }
 });
