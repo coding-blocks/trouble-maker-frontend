@@ -5,5 +5,6 @@ export default DS.Model.extend({
   description: DS.attr(),
   difficulty: DS.attr(),
   user: DS.belongsTo('user'),
-  choices: DS.hasMany('choice')
+  choices: DS.hasMany('choice'),
+  tags: DS.hasMany('tag')
 })
