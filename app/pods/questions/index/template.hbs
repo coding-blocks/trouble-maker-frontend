@@ -65,5 +65,9 @@
     </div>
   </div>
   {{/each}}
+  {{pagination-pills 
+    pagination=questions.meta.pagination 
+    pages=pageCount
+    setPage=(action (mut page))}}
 </div>
 {{outlet}}
