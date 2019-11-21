@@ -7,7 +7,7 @@ export default Controller.extend({
   store: service(),
   queryParams: ['page', 'limit'],
   page: 1,
-  limit: 1,
+  limit: 10,
   searchString: '',
   pageCount: computed('limit', 'questions', function() {
     return Math.ceil(this.questions.meta.pagination.count / this.limit)
