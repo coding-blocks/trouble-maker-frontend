@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { task, timeout } from 'ember-concurrency';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
   store: service(),
@@ -8,6 +9,9 @@ export default Controller.extend({
   page: 1,
   limit: 10,
   searchString: '',
+  pageCount: computed('limit', 'questions', function() {
+    return Math.ceil(this.questions.meta.pagination.count / this.limit)
+  }),
   searchTask: task(function * () {
     yield timeout(250)
 

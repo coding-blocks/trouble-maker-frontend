@@ -1,0 +1,31 @@
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <button 
+        class="page-link" 
+        {{action setPage (dec pagination.currentPage)}} 
+        disabled={{eq pagination.currentPage 1}}>
+        Previous
+      </button>
+    </li>
+
+    {{#each pagesArray as |page|}}
+      <li class="page-item">
+        <button 
+          class="page-link active {{if (eq page pagination.currentPage) "bg-red white"}}" 
+          {{action setPage page}} >
+          {{page}}
+        </button>
+      </li>
+    {{/each}}
+
+    <li class="page-item">
+      <button 
+        class="page-link" 
+        {{action setPage (inc pagination.currentPage)}} 
+        disabled={{not pagination.nextOffset}}>
+        Next
+      </button>
+    </li>
+  </ul>
+</nav>
