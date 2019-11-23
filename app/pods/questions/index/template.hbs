@@ -7,7 +7,7 @@
   </div>
   <div class="row justify-content-center">
     <div class="input-search nav-search col-8 justify-content-center">
-      {{input type="text"  placeholder="Enter Question Name" key-up=(perform searchTask) value=searchString}}
+      {{input type="text"  placeholder="Enter Question Name" value=filter}}
       <img src="http://online.codingblocks.com/images/searchicon-06d8faf96de7c883b5440b6594e39eda.png" alt="search">
     </div>
   </div>
@@ -16,7 +16,7 @@
       {{#power-select-multiple 
       search=(perform tagsFilterTask)
       selected=filterTags
-      onchange=(action (pipe (action (mut filterTags)) (perform searchTask)))
+      onchange=(action "selectTags")
       placeholder="Filter by tags"
       as |tag|}}
       {{tag.title}}
