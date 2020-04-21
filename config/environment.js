@@ -36,9 +36,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.ONEAUTH = {
       clientID: "2636937167",
-      callbackURL: "http://localhost:4200/callback"
+      callbackURL: "http://test.troublemaker/callback"
     }
-    ENV.apiHost = 'http://localhost:8080'
+    ENV.apiHost = 'http://test.troublemakerbackend'
     ENV.sentry.development = true
   }
 
