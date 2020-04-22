@@ -7,16 +7,32 @@ export default Route.extend({
     },
     limit: {
       refreshModel: true
+    },
+    filter: {
+      refreshModel: true
+    },
+    filterTagsParam: {
+      refreshModel: true
     }
   },
   model (params) {
-    const {page, limit} = params
+    const { page, limit, filter = '' } = params
+    let { filterTagsParam } = params
+
+    filterTagsParam = filterTagsParam ? filterTagsParam.split(',') : []
+    
     return this.store.query('question', {
       include: 'user',
+      filter: {
+        title: {
+          $iLike: `%${filter}%`
+        },
+        ...(filterTagsParam.length && {tags: filterTagsParam} )
+      },
       page: {
         offset: (page-1)*limit > 0 ? (page-1)*limit: 0,
         limit: params.limit
-      }
+      },
     })
   },
   setupController (controller, model) {

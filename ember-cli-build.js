@@ -6,6 +6,9 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     'ember-composable-helpers': {
       // Add conditions
+    },
+    babel: {
+      plugins: ['transform-object-rest-spread']
     }
     // Add options here
   });

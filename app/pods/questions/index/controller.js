@@ -5,36 +5,13 @@ import { computed } from '@ember/object';
 
 export default Controller.extend({
   store: service(),
-  queryParams: ['page', 'limit'],
+  queryParams: ['page', 'limit', 'filter', 'filterTagsParam'],
   page: 1,
   limit: 10,
-  searchString: '',
+  filter: '',
   pageCount: computed('limit', 'questions', function() {
     return Math.ceil(this.questions.meta.pagination.count / this.limit)
   }),
-  searchTask: task(function * () {
-    yield timeout(250)
-
-    let searchStr = this.get('searchString').trim()
-    let selectedTags = []
-
-    if(this.get('filterTags')) {
-      selectedTags = this.get('filterTags')
-      selectedTags = selectedTags.map(t => +t.id)
-    } 
-
-    const questions = yield this.get('store').query('question', {
-      include: 'user',
-      filter: {
-        title: {
-          $iLike: `%${this.get('searchString')}%`
-        },
-        tags: selectedTags
-      }
-    })
-    this.set('page', 1)
-    this.set('questions', questions)
-  }).restartable(),
   tagsFilterTask: task(function * (str) {
     yield timeout(250)
     const tags = yield this.get('store').query('tag', {
@@ -47,6 +24,10 @@ export default Controller.extend({
     return tags.toArray()
   }),
   actions : {
+    selectTags (tags) {
+      this.set('filterTagsParam', tags.length ? tags.mapBy('id').reduce((acc, val) => acc + ',' + val) : '')
+      this.set('filterTags', tags)
+    },
     deleteQuestion(question) {
       question.destroyRecord()
     }

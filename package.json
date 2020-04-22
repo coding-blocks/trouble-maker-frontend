@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "@coding-blocks/motley": "^0.2.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "ember-concurrency": "^0.8.19",
     "ember-confirm-dialog": "^1.2.1",
     "ember-modal-dialog": "^3.0.0-beta.0",
