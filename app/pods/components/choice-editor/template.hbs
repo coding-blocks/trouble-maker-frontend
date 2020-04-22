@@ -25,22 +25,6 @@
         {{markdown-to-html choice.description extensions='katex'}}
       </div>
     </div>
-    <div class="row align-items-center justify-content-center">
-      <div class="col-2">
-        Positive Weight:
-      </div>
-      <div class="col-10 input-group">
-        {{input type="number" class="input-text" placeholder="Positive Weight" value=choice.positiveWeight}}
-      </div>
-    </div>
-    <div class="row justify-conten-center align-items-center">
-      <div class="col-2">
-        Negative Weight:
-      </div>
-      <div class="col-10 input-group">
-        {{input type="number" class="input-text" placeholder="Negative Weight" value=choice.negativeWeight}}
-      </div>
-    </div>
     {{else}}
       <h3>{{choice.title}}</h3>
       <p>
