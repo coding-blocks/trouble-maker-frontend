@@ -42,6 +42,22 @@
     </div>
   </div>
 
+  <div class="row justiy-content-center align-items-center">
+    <div class="col-1">
+      <label>Positive Score</label>
+    </div>
+    <div class="col-5">
+      {{input type="number" class="input-text" value=question.positiveScore}}
+    </div>
+
+    <div class="col-1">
+      <label>Negative Score</label>
+    </div>
+    <div class="col-5">
+      {{input type="number" class="input-text" value=question.negativeScore}}
+    </div>
+  </div>
+
   {{#unless question.isNew}}
 
     <div class="button-dashed add-choice">
