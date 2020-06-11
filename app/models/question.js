@@ -7,6 +7,7 @@ export default DS.Model.extend({
   difficulty: DS.attr(),
   positiveScore: DS.attr(),
   negativeScore: DS.attr(),
+  multicorrect: DS.attr('boolean'),
   user: DS.belongsTo('user'),
   choices: DS.hasMany('choice'),
   tags: DS.hasMany('tag')

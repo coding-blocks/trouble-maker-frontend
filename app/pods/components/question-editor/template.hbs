@@ -58,13 +58,21 @@
     </div>
   </div>
 
+
+
   {{#unless question.isNew}}
 
-    <div class="button-dashed add-choice">
-      <a>
-        <button {{action 'addChoice'}}>Add Choice</button>
-      </a>
-    </div>
+    <div class="row">
+      <div class="col-4">
+        <button class="button-dashed add-choice" {{action 'addChoice'}}>Add Choice</button>
+      </div>
+
+      <div class="col-4 my-auto">
+         {{input id="multicorrect-checkbox" type="checkbox" checked=question.multicorrect}} 
+         <label for="multicorrect-checkbox">Multicorrect </label>
+      </div>
+    </div>    
+
     <ul>
       {{#each question.choices as |choice|}}
         <li class="justify-content-center">
