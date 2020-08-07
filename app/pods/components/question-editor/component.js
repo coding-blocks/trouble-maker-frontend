@@ -29,6 +29,9 @@ export default Component.extend({
 
       this.get('question.choices').addObject(newChoice)
     },
+    setSelection: function(selected) {
+      this.get('question').set('difficulty', selected)
+    },
     saveQuestion () {
       const onSuccess = () => this.get('notify').success('Saved Successfully')
 

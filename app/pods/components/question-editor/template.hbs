@@ -58,7 +58,22 @@
     </div>
   </div>
 
-
+  <div class="row align-items-center">
+    <div class="col-2">
+      <label>Question Difficulty:</label>
+    </div>
+    {{#if true }}
+    <div class="col-5 input-group">
+      <div class="form-group filterDropDown">
+        <select onchange={{action "setSelection" value="target.value"}} class="col-12" >
+            {{#each difficultyLevels as |item|}}
+                <option value="{{item}}" selected={{if (eq question.difficulty item) 'true'}}>{{item}}</option>
+            {{/each}}
+        </select>
+      </div>
+    </div>
+    {{/if}}
+  </div>
 
   {{#unless question.isNew}}
 

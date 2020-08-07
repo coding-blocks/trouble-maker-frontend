@@ -10,5 +10,6 @@ export default Route.extend({
   },
   setupController (controller, model) {
     controller.set("question", model)
+    controller.set("difficultyLevels", ['EASY' , 'MEDIUM', 'HARD'])
   }
 });
