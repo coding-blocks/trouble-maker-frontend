@@ -1,0 +1,32 @@
+<div class="container">
+    <div id="titleBar" class="row justify-content-center align-items-center">
+        <h1>Preview Quiz</h1>
+        <br>
+    </div>
+    <h2>Quiz Title = {{quiz.title}}</h2>
+    <h3>Quiz Description = {{quiz.description}}</h3>
+
+    {{#if question}}
+        <div class="row">
+            <div class="col container-fluid">
+                {{question-preview question=question}}
+            </div>
+            <div class="col">
+                {{question-navigator quiz=quiz navigateToQuestion=(action (mut questionId))}}
+            </div>
+        </div>
+        <br/>
+    {{else}}
+        <div class="container">
+            <h3>No questions added</h3>
+        </div>
+    {{/if}}
+
+    <div class="container-fluid">
+        <div class="button-solid">
+            <a href="/quiz/{{quiz.id}}" class="white">
+                <button>Edit Quiz</button>
+            </a>
+        </div>
+    </div>
+</div>

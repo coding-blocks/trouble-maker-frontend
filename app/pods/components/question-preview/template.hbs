@@ -1,0 +1,14 @@
+<div>
+    <h3>Question - {{question.title}}</h3>
+    <p><b>Description -</b> {{question.description}}</p>
+    <br>
+    {{#each question.choices as |choice|}}
+        {{#if question.multicorrect}}
+            <input type="checkbox" name="questionChoices" value="{{choice.id}}"> {{choice.title}} <br>
+        {{else}}
+            <input type="radio" name="questionChoices" value="{{choice.id}}"> {{choice.title}} <br>
+        {{/if}}
+        {{choice.description}}<br><br>
+    {{/each}}
+    <br><br>
+</div>

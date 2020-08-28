@@ -14,7 +14,9 @@ Router.map(function() {
   this.route('callback');
   this.route('quiz', function() {
     this.route('new');
-    this.route('id', {path: '/:id'});
+    this.route('id', {path: '/:id'}, function() {
+      this.route('preview');
+    });
   });
   this.route('err', {path: '/:code'});
 });
