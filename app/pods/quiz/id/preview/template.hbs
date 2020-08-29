@@ -9,7 +9,7 @@
     {{#if question}}
         <div class="row">
             <div class="col container-fluid">
-                {{question-preview question=question}}
+                {{question-preview question=question selectChoice=(action 'selectChoice') answers=answers}}
             </div>
             <div class="col">
                 {{question-navigator quiz=quiz navigateToQuestion=(action (mut questionId))}}
@@ -23,10 +23,36 @@
     {{/if}}
 
     <div class="container-fluid">
-        <div class="button-solid">
-            <a href="/quiz/{{quiz.id}}" class="white">
-                <button>Edit Quiz</button>
-            </a>
+        <div class="row">
+            <div class="col-2"/>
+            <div class="col">
+                <div class="button-solid">
+                    <a href="/quiz/{{quiz.id}}" class="white">
+                        <button>Edit Quiz</button>
+                    </a>
+                </div>
+            </div>
+            <div class="col-4"/>
+            <div class="col">
+                <div class="button-solid">
+                    <button {{action 'submitQuiz'}}>Submit</button>
+                </div>
+            </div>
         </div>
+
+        {{#if fetchingResult}}
+            <h3> Fetching results ... wait a moment</h3>
+        {{/if}}
+        {{#if results}}
+            <div class="container-fluid">
+                <h3 align="center">Results</h3>
+                <b>Total Score : {{results.score}}</b>
+                <br>
+                {{#each results.questions as |quesResult|}}
+                    {{question-result res=quesResult}}
+                    <br>
+                {{/each}}
+            </div>
+        {{/if}}
     </div>
 </div>

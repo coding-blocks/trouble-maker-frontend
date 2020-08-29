@@ -4,9 +4,16 @@
     <br>
     {{#each question.choices as |choice|}}
         {{#if question.multicorrect}}
-            <input type="checkbox" name="questionChoices" value="{{choice.id}}"> {{choice.title}} <br>
+            {{input type="checkbox" checked=(mark-option question.id choice.id answers) name="questionChoices"
+                    click=(action "selectChoiceAndMark" question.id choice.id)}}
+            {{choice.title}}
+            <br>
         {{else}}
-            <input type="radio" name="questionChoices" value="{{choice.id}}"> {{choice.title}} <br>
+            {{#radio-button value=choice.id groupValue=selectedChoice name="questionChoices"
+                            changed=(action "selectChoiceAndMark" question.id choice.id)}}
+                {{choice.title}}
+            {{/radio-button}}
+            <br>
         {{/if}}
         {{choice.description}}<br><br>
     {{/each}}
