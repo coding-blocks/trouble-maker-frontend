@@ -1,0 +1,23 @@
+<div style="border-color: black">
+    Question ID : {{res.id}}<br>
+    Question Score : {{res.score}}<br>
+    Question Title : {{question.title}}<br>
+    {{#if res.correctlyAnswered}}
+        Correctly marked choices :
+        <ul style="list-style-type: square">
+            {{#each res.correctlyAnswered as |choice|}}
+                <li>{{choice.title}}</li>
+            {{/each}}
+        </ul>
+    {{/if}}
+
+    {{#if res.incorrectlyAnswered}}
+        Incorrectly marked choices :
+        <ul style="list-style-type: square">
+            {{#each res.incorrectlyAnswered as |choice|}}
+                <li>{{choice.title}}</li>
+            {{/each}}
+        </ul>
+    {{/if}}
+
+</div>

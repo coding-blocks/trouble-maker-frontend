@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div class="row">
+        {{#each questionIDs as |num i|}}
+            <div class="button-solid col-3 m-2">
+                <a href="#" {{action navigateToQuestion num}} class="white">
+                    <button>{{i}}</button>
+                </a>
+            </div>
+        {{/each}}
+    </div>
+</div>

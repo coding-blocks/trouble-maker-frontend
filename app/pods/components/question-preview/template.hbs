@@ -1,0 +1,21 @@
+<div>
+    <h3>Question - {{question.title}}</h3>
+    <p><b>Description -</b> {{question.description}}</p>
+    <br>
+    {{#each question.choices as |choice|}}
+        {{#if question.multicorrect}}
+            {{input type="checkbox" checked=(mark-option question.id choice.id answers) name="questionChoices"
+                    click=(action "selectChoiceAndMark" question.id choice.id)}}
+            {{choice.title}}
+            <br>
+        {{else}}
+            {{#radio-button value=choice.id groupValue=selectedChoice name="questionChoices"
+                            changed=(action "selectChoiceAndMark" question.id choice.id)}}
+                {{choice.title}}
+            {{/radio-button}}
+            <br>
+        {{/if}}
+        {{choice.description}}<br><br>
+    {{/each}}
+    <br><br>
+</div>

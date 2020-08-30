@@ -63,6 +63,8 @@
   "dependencies": {
     "@coding-blocks/motley": "^0.2.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "ember": "^1.0.3",
+    "ember-radio-button": "^2.0.1",
     "showdown-katex-studdown": "^0.4.0"
   }
 }
