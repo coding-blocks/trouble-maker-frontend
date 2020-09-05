@@ -1,21 +1,42 @@
 <div>
-    <h3>Question - {{question.title}}</h3>
-    <p><b>Description -</b> {{question.description}}</p>
+    <h3>
+        <div class="row justify-content-center align-items-center m-0 p-0">
+            <div class="col-4">
+                Question -
+            </div>
+            <div class="col">
+                {{markdown-to-html question.title}}
+            </div>
+        </div>
+
+    </h3>
+    <p><b>Description -</b> {{markdown-to-html question.description}}</p>
     <br>
+
     {{#each question.choices as |choice|}}
-        {{#if question.multicorrect}}
-            {{input type="checkbox" checked=(mark-option question.id choice.id answers) name="questionChoices"
-                    click=(action "selectChoiceAndMark" question.id choice.id)}}
-            {{choice.title}}
-            <br>
-        {{else}}
-            {{#radio-button value=choice.id groupValue=selectedChoice name="questionChoices"
-                            changed=(action "selectChoiceAndMark" question.id choice.id)}}
-                {{choice.title}}
-            {{/radio-button}}
-            <br>
-        {{/if}}
-        {{choice.description}}<br><br>
+        <div class="row justify-content-center align-items-center m-0 p-0">
+            {{#if question.multicorrect}}
+                <div class="col-1 input-group">
+                    {{input type="checkbox" checked=(mark-option question.id choice.id answers)
+                            name="questionChoices" click=(action "selectChoiceAndMark" question.id choice.id)}}
+                </div>
+                <div class="col">
+                    {{markdown-to-html choice.title extensions='katex'}}
+                </div>
+            {{else}}
+                <div class="col-1 input-group">
+                    {{#radio-button value=choice.id groupValue=selectedChoice name="questionChoices"
+                                    changed=(action "selectChoiceAndMark" question.id choice.id)}}
+                    {{/radio-button}}
+                </div>
+                <div class="col">
+                    {{markdown-to-html choice.title extensions='katex'}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="row align-items-center m-0 p-0">
+            {{markdown-to-html choice.description}}
+        </div>
     {{/each}}
     <br><br>
 </div>
